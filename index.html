@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/bootstrap.min.js"></script>
+    <script defer src="app.js"></script>
+    <script src="https://kit.fontawesome.com/ee37c672c1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="container-fluid min-vh-100">
+        <header class="row d-flex justify-content-evenly pt-3">
+            <div class="col">
+                <label for="selectIncludeCover">Include Cover</label>
+                <select class="form-select" name="selectIncludeCover" id="selectIncludeCover" >
+                    <option value="Include Cover">Include Cover</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+
+                </select>
+            </div>
+            <div class="col">
+                <label for="inputFirstName">First Name</label>
+                <input class="form-control" type="text" name="inputFirstName" id="inputFirstName">
+            </div>
+            <div class="col">
+                <label for="inputLastName">Second Name</label>
+                <input class="form-control" type="text" name="inputLastName" id="inputLastName">
+            </div>
+            <div class="col">
+                <label for="selectPosition">S.M. Position</label>
+                <select class="form-select" name="smPosition" id="selectPosition" >
+                    <option value="position-left">Left</option>
+                    <option value="position-right">Right</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="inputAcountTwitter">Twitter</label>
+                <input class="form-control" type="text" name="inputAcountTwitter" id="inputAcountTwitter">
+            </div>
+            <div class="col">
+                <label for="inputAcountGithub">Github</label>
+                <input class="form-control" type="text" name="inputAcountGithub" id="inputAcountGithub">
+            </div>
+            <div class="col">
+                <label for="inputAcountLinkedin">Linkedin</label>
+                <input class="form-control" type="text" name="inputAcountLinkedin" id="inputAcountLinkedin">
+            </div>
+            <div class="col">
+                <label for="inputAcountInstagram">Instagram</label>
+                <input class="form-control" type="text" name="inputAcountInstagram" id="inputAcountInstagram">
+            </div>
+            <div class="col">
+                <label for="selectRole">Role</label>
+                <select class="form-select" name="selectRole" id="selectRole" >
+                    <option value="">null</option>
+                    <option value="Web Developer">Web Developer</option>
+                    <option value="Floor Planner">Floor Planner</option>
+                    <option value="Technical Writter">Technical Writter</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="selectCity">City</label>
+                <select class="form-select" name="selectCity" id="selectCity" >
+                    <option value="">null</option>
+                    <option value="Miami">Miami</option>
+                    <option value="Munich">Munich</option>
+                    <option value="Caracas">Caracas</option>
+                    <option value="Toronto">Toronto</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="selectCounty">Country</label>
+                <select class="form-select" name="selectCounty" id="selectCounty">
+                    <option value="">null</option>
+                    <option value="USA">USA</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Venezuela">Venezuela</option>
+                </select>
+            </div>
+        </header>
+        <div class="row d-flex justify-content-center align-items-center" id="content">
+
+            <aside class="col-1"></aside>
+        </div>
+    </section>
+</body>
+</html>
