@@ -15,15 +15,15 @@ let coverStatus = '';
 let lastName = '';
 let firstName = '';
 let position = '';
-//let twitterUrl = '';
-//let githubUrl = '';
-//let linkedinUrl = '';
-//let instagramUrl = '';
+let twitterUrl = '';
+let githubUrl = '';
+let linkedinUrl = '';
+let instagramUrl = '';
 let role = '';
 let city = '';
 let country = '';
 
-const render = (content, coverStatus, lastName, firstName, role, city, country) => {
+const render = (content, coverStatus, lastName, firstName, twitter, github, linkedin, instagram, role, city, country) => {
     const showCover ={
         visible: 'visible',
         invisible: 'invisible'
@@ -44,10 +44,10 @@ const render = (content, coverStatus, lastName, firstName, role, city, country) 
         </article>
         <aside class="col-1 d-flex flex-column fs-3 p-0">
             <div class="d-flex flex-column w-50 align-items-center bg-light shadow">
-                <span><a href=""><i class="fa-brands fa-square-twitter fa-lg"></i></a></span>
-                <span><a href=""><i class="fa-brands fa-square-github fa-lg"></i></a></span>
-                <span><a href=""><i class="fa-brands fa-linkedin fa-lg"></i></a></span>
-                <span><a href=""><i class="fa-brands fa-square-instagram fa-lg"></i></a></span>
+                <span><a href="${twitter}"><i class="fa-brands fa-square-twitter fa-lg"></i></a></span>
+                <span><a href="${github}"><i class="fa-brands fa-square-github fa-lg"></i></a></span>
+                <span><a href="${linkedin}"><i class="fa-brands fa-linkedin fa-lg"></i></a></span>
+                <span><a href="${instagram}"><i class="fa-brands fa-square-instagram fa-lg"></i></a></span>
             </div>  
         </aside>`)
 
@@ -62,6 +62,10 @@ const setLastName = (inputLastName) => `${inputLastName}`;
 
 //const positionSM = (position) => position;
 
+const setTwitter = (inputTwitter) => `${inputTwitter}`;
+const setGitHub = (inputGithub) => `${inputGithub}`;
+const setLinkedin = (inputLinkedin) => `${inputLinkedin}`;
+const setInstagram = (inputInstagram) => `${inputInstagram}`;
 
 
 const setRole = (role) => role;
@@ -73,17 +77,17 @@ const setRole = (role) => role;
 try{
     selectIncludeCover.addEventListener('change', () => {
         coverStatus = selectShowStatusCover(selectIncludeCover.value);
-        render(content, coverStatus, lastName, firstName, role, city, country);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
     });
 
     inputLastName.addEventListener('keyup', () => {
         lastName = setLastName(inputLastName.value);
-        render(content, coverStatus, lastName, firstName, role, city, country);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
     });
 
     inputFirstName.addEventListener('keyup', () => {
         firstName = setFirstName(inputFirstName.value);
-        render(content, coverStatus, lastName, firstName, role, city, country);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
     })
 
     //selectPosition.addEventListener('keyup', () => {
@@ -91,24 +95,44 @@ try{
     //    render(content, coverStatus, lastName, firstName,selectPosition);
     //})
 
+    inputTwitter.addEventListener('keyup', () => {
+        twitterUrl = setTwitter(inputTwitter.value);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
+    })
+
+    inputGithub.addEventListener('keyup', () => {
+        githubUrl = setGitHub(inputGithub.value);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
+    })
+
+    inputLinkedin.addEventListener('keyup', () => {
+        linkedinUrl = setLinkedin(inputLinkedin.value);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
+    })
+
+    inputInstagram.addEventListener('keyup', () => {
+        instagramUrl = setInstagram(inputInstagram.value);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
+    })
+
     selectRole.addEventListener('change', () => {
         role = setRole(selectRole.value);
-        render(content, coverStatus, lastName, firstName, role, city, country);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
     })
 
     selectCity.addEventListener('change', () => {
         city = setFirstName(selectCity.value);
-        render(content, coverStatus, lastName, firstName, role, city, country);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
     })
 
     selectCountry.addEventListener('change', () => {
         country = setFirstName(selectCountry.value);
-        render(content, coverStatus, lastName, firstName, role, city, country);
+        render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
     })
 
 
 
-    render(content, coverStatus, lastName, firstName, role, city, country);
+    render(content, coverStatus, lastName, firstName, twitterUrl, githubUrl, linkedinUrl, instagramUrl, role, city, country);
     console.log(firstName)
 }catch (e) {
     alert('error '+ e)
