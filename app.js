@@ -24,13 +24,18 @@ let city = '';
 let country = '';
 
 const render = (content, coverStatus, lastName, firstName, twitter, github, linkedin, instagram, role, city, country) => {
-    const showCover ={
+    const showStatus ={
         visible: 'visible',
         invisible: 'invisible'
     };
+    const showTwitter = () => twitter.length === 0? showStatus.invisible : showStatus.visible;
+    const showGitHub = () => github.length === 0? showStatus.invisible : showStatus.visible;
+    const showLinkedin = () => linkedin.length === 0? showStatus.invisible : showStatus.visible;
+    const showInstagram = () => instagram.length === 0? showStatus.invisible : showStatus.visible;
+
     let show = '';
-    coverStatus === 'false'? show = showCover.invisible: show = showCover.visible;
-    let widget = (`
+    coverStatus === 'false'? show = showStatus.invisible: show = showStatus.visible;
+    let widgetCard = (`
        <article class="col-3 card mt-5 p-0 shadow">
            <div class="card-img-top w-100 h-50 d-flex justify-content-center">
                <img id="imgCover-card" class="w-100 h-50 ${show}" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8mEIWZjRFdiO4YIkq790lTaNzTtCH6DcwrQ&usqp=CAU" alt="">
@@ -44,14 +49,14 @@ const render = (content, coverStatus, lastName, firstName, twitter, github, link
         </article>
         <aside class="col-1 d-flex flex-column fs-3 p-0">
             <div class="d-flex flex-column w-50 align-items-center bg-light shadow">
-                <span><a href="${twitter}"><i class="fa-brands fa-square-twitter fa-lg"></i></a></span>
-                <span><a href="${github}"><i class="fa-brands fa-square-github fa-lg"></i></a></span>
-                <span><a href="${linkedin}"><i class="fa-brands fa-linkedin fa-lg"></i></a></span>
-                <span><a href="${instagram}"><i class="fa-brands fa-square-instagram fa-lg"></i></a></span>
+                <span class="${showTwitter()}"><a href="${twitter}"><i class="fa-brands fa-square-twitter fa-lg"></i></a></span>
+                <span class="${showGitHub()}"><a href="${github}"><i class="fa-brands fa-square-github fa-lg"></i></a></span>
+                <span class="${showLinkedin()}"><a href="${linkedin}"><i class="fa-brands fa-linkedin fa-lg"></i></a></span>
+                <span class="${showInstagram()}"><a href="${instagram}"><i class="fa-brands fa-square-instagram fa-lg"></i></a></span>
             </div>  
         </aside>`)
 
-    content.innerHTML  = widget;
+    content.innerHTML  = widgetCard;
     console.log(firstName)
 }
 
@@ -69,9 +74,6 @@ const setInstagram = (inputInstagram) => `${inputInstagram}`;
 
 
 const setRole = (role) => role;
-
-//const location = (city, country) => `${city}, ${country}`;
-
 
 
 try{
